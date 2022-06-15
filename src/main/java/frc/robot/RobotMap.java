@@ -10,29 +10,24 @@ public final class RobotMap {
 
     public static final class map_Drivetrain {
 
-        public static final int FRONT_LEFT_DRIVE = 0;
-        public static final int FRONT_LEFT_TURN = 1;
+        // CAN IDS 
+        public static final int FRONT_LEFT_DRIVE = 0; // left front drive
+        public static final int FRONT_LEFT_TURN = 1;  // left front steer
 
-        public static final int FRONT_RIGHT_DRIVE = 2;
-        public static final int FRONT_RIGHT_TURN = 3;
+        public static final int FRONT_RIGHT_DRIVE = 2; // right front drive
+        public static final int FRONT_RIGHT_TURN = 3; // right front steer
 
-        public static final int BACK_LEFT_DRIVE = 4;
-        public static final int BACK_LEFT_TURN = 5;
+        public static final int BACK_LEFT_DRIVE = 4; // left back drive
+        public static final int BACK_LEFT_TURN = 5; // left back steer
 
-        public static final int BACK_RIGHT_DRIVE = 6;
-        public static final int BACK_RIGHT_TURN = 7;
+        public static final int BACK_RIGHT_DRIVE = 6; // right back drive
+        public static final int BACK_RIGHT_TURN = 7; // right back steer
 
-        public static final int FRONT_LEFT_TURN_ENCODER_A = 0;
-        public static final int FRONT_LEFT_TURN_ENCODER_B = 1;
-
-        public static final int FRONT_RIGHT_TURN_ENCODER_A = 2;
-        public static final int FRONT_RIGHT_TURN_ENCODER_B = 3;
-
-        public static final int BACK_LEFT_TURN_ENCODER_A = 4;
-        public static final int BACK_LEFT_TURN_ENCODER_B = 5;
-
-        public static final int BACK_RIGHT_TURN_ENCODER_A = 6;
-        public static final int BACK_RIGHT_TURN_ENCODER_B = 7;
+        // ANALOG INPUT PORTS
+        public static final int FRONT_LEFT_TURN_ENCODER = 0; // left front
+        public static final int FRONT_RIGHT_TURN_ENCODER = 1; // right front
+        public static final int BACK_LEFT_TURN_ENCODER = 2; // left back
+        public static final int BACK_RIGHT_TURN_ENCODER = 3; // right back
     }
 
 }

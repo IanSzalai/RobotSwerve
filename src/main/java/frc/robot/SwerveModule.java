@@ -15,7 +15,7 @@ import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import static frc.robot.RobotPreferences.pref_SwerveModule.*;
 
 /** Swerve Module Class */
@@ -24,7 +24,7 @@ public class SwerveModule {
     private TalonFX driveMotor;
     private TalonFX turnMotor;
 
-    private Encoder turnEncoder;
+    private AnalogPotentiometer turnAbsEncoder;
 
     private final PIDController drivePIDController = new PIDController(
             drivePIDControllerP.getValue(),
@@ -63,21 +63,14 @@ public class SwerveModule {
      * 
      * @param driveMotorID       CAN device number of driveMotor
      * @param turnMotorID        CAN device number of turnMotor
-     * @param turnEncoderSourceA SourceA of turnEncoder
-     * @param turnEncoderSourceB SourceB of turnEncoder
+     * @param turnEncoderPort    Analog Port number that the encoder is on 
      */
-    public SwerveModule(int driveMotorID, int turnMotorID, int turnEncoderSourceA, int turnEncoderSourceB) {
+    public SwerveModule(int driveMotorID, int turnMotorID, int turnEncoderPort) {
 
         driveMotor = new TalonFX(driveMotorID);
         turnMotor = new TalonFX(turnMotorID);
 
-        turnEncoder = new Encoder(turnEncoderSourceA, turnEncoderSourceB);
-
-        // Set the distance (in this case, angle) per pulse for the turning encoder.
-        // This is the the angle through an entire rotation (2 * pi) divided by the
-        // encoder resolution.
-        turnEncoder.setDistancePerPulse(2 * Math.PI / encoderCountsPerRotation.getValue());
-
+        turnAbsEncoder = new AnalogPotentiometer(turnEncoderPort, Math.PI * 2);
     }
 
     public void configMotors(TalonFXConfiguration driveConfig, TalonFXConfiguration turnConfig) {
@@ -119,7 +112,7 @@ public class SwerveModule {
     }
 
     public double getTurnEncoderPosition() {
-        return turnEncoder.get();
+        return turnAbsEncoder.get();
     }
 
     /**
@@ -151,5 +144,21 @@ public class SwerveModule {
 
         driveMotor.set(ControlMode.Current, driveOutput + driveOutputFeedforward);
         turnMotor.set(ControlMode.Current, turnOutput + turnOutputFeedforward);
+    }
+
+    public void setDriveMotor(double percentOutput) {
+        driveMotor.set(ControlMode.PercentOutput, percentOutput);
+    }
+
+    public void setTurnMotor(double percentOutput) {
+        turnMotor.set(ControlMode.PercentOutput, percentOutput);
+    }
+
+    public double getDriveIntegratedEncoder() {
+        return driveMotor.getSelectedSensorPosition();
+    }
+
+    public double getTurnIntegratedEncoder() {
+        return turnMotor.getSelectedSensorPosition();
     }
 }

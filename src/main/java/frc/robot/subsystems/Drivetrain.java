@@ -41,13 +41,13 @@ public class Drivetrain extends SubsystemBase {
   /** Creates a new Drivetrain. */
   public Drivetrain() {
     frontLeft = new SwerveModule(FRONT_LEFT_DRIVE, FRONT_LEFT_TURN,
-        FRONT_LEFT_TURN_ENCODER_A, FRONT_LEFT_TURN_ENCODER_B);
+        FRONT_LEFT_TURN_ENCODER);
     frontRight = new SwerveModule(FRONT_RIGHT_DRIVE, FRONT_RIGHT_TURN,
-        FRONT_RIGHT_TURN_ENCODER_A, FRONT_RIGHT_TURN_ENCODER_B);
+        FRONT_RIGHT_TURN_ENCODER);
     backLeft = new SwerveModule(BACK_LEFT_DRIVE, BACK_LEFT_TURN,
-        BACK_LEFT_TURN_ENCODER_A, BACK_LEFT_TURN_ENCODER_B);
+        BACK_LEFT_TURN_ENCODER);
     backRight = new SwerveModule(BACK_RIGHT_DRIVE, BACK_RIGHT_TURN,
-        BACK_RIGHT_TURN_ENCODER_A, BACK_RIGHT_TURN_ENCODER_B);
+        BACK_RIGHT_TURN_ENCODER);
 
     driveConfig = new TalonFXConfiguration();
     turnConfig = new TalonFXConfiguration();
@@ -89,6 +89,18 @@ public class Drivetrain extends SubsystemBase {
     backRight.setDesiredState(moduleStates[3]);
   }
 
+  public void openLoopDrive(double driveSpeed, double turnSpeed) {
+    frontLeft.setDriveMotor(driveSpeed);
+    frontRight.setDriveMotor(driveSpeed);
+    backLeft.setDriveMotor(driveSpeed);
+    backRight.setDriveMotor(driveSpeed);
+
+    frontLeft.setTurnMotor(turnSpeed);
+    frontRight.setTurnMotor(turnSpeed);
+    backLeft.setTurnMotor(turnSpeed);
+    backRight.setTurnMotor(turnSpeed);
+  }
+
   private void updateOdometry() {
     odometry.update(
         navX.getRotation2d(),
@@ -114,5 +126,17 @@ public class Drivetrain extends SubsystemBase {
 
     SmartDashboard.putNumber("Back Right Drive Encoder Position", backRight.getDriveEncoderPosition());
     SmartDashboard.putNumber("Back Right Turn Encoder Position", backRight.getDriveEncoderPosition());
+    
+    SmartDashboard.putNumber("Front Left Drive Integrated Encoder", frontLeft.getDriveIntegratedEncoder());
+    SmartDashboard.putNumber("Front Left Turn Integrated Encoder", frontLeft.getTurnIntegratedEncoder());
+
+    SmartDashboard.putNumber("Front Right Drive Integrated Encoder", frontRight.getDriveIntegratedEncoder());
+    SmartDashboard.putNumber("Front Right Turn Integrated Encoder", frontRight.getTurnIntegratedEncoder());
+
+    SmartDashboard.putNumber("Back Left Drive Integrated Encoder", backLeft.getDriveIntegratedEncoder());
+    SmartDashboard.putNumber("Back Left Turn Integrated Encoder", backLeft.getTurnIntegratedEncoder());
+
+    SmartDashboard.putNumber("Back Right Drive Integrated Encoder", backRight.getDriveIntegratedEncoder());
+    SmartDashboard.putNumber("Back Right Turn Integrated Encoder", backRight.getTurnIntegratedEncoder());
   }
 }
