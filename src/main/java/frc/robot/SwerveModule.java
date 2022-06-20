@@ -70,7 +70,7 @@ public class SwerveModule {
         driveMotor = new TalonFX(driveMotorID);
         turnMotor = new TalonFX(turnMotorID);
 
-        turnAbsEncoder = new AnalogPotentiometer(turnEncoderPort, Math.PI * 2);
+        turnAbsEncoder = new AnalogPotentiometer(turnEncoderPort);
     }
 
     public void configMotors(TalonFXConfiguration driveConfig, TalonFXConfiguration turnConfig) {
@@ -147,11 +147,13 @@ public class SwerveModule {
     }
 
     public void setDriveMotor(double percentOutput) {
-        driveMotor.set(ControlMode.PercentOutput, percentOutput);
+        double demand = percentOutput * RobotPreferences.pref_SwerveModule.driveSpeedMultiplier.getValue();
+        driveMotor.set(ControlMode.PercentOutput, demand);
     }
 
     public void setTurnMotor(double percentOutput) {
-        turnMotor.set(ControlMode.PercentOutput, percentOutput);
+        double demand = percentOutput * RobotPreferences.pref_SwerveModule.turnSpeedMultiplier.getValue();
+        turnMotor.set(ControlMode.PercentOutput, demand);
     }
 
     public double getDriveIntegratedEncoder() {

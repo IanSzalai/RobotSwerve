@@ -29,7 +29,10 @@ public final class RobotPreferences {
 
         public static final SN_DoublePreference turnFeedforwardS = new SN_DoublePreference("turnFeedforwardS", 1);
         public static final SN_DoublePreference turnFeedforwardV = new SN_DoublePreference("turnFeedforwardV", 0.5);
-    }
+        
+        public static final SN_DoublePreference driveSpeedMultiplier = new SN_DoublePreference("driveSpeedMultiplier", 0.1);
+        public static final SN_DoublePreference turnSpeedMultiplier = new SN_DoublePreference("turnSpeedMultiplier", 0.05);
+}
 
     public static final class pref_Drivetrain {
 
