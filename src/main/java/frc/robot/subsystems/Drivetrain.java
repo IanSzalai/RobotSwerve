@@ -115,16 +115,16 @@ public class Drivetrain extends SubsystemBase {
     // This method will be called once per scheduler run
     updateOdometry();
 
-    SmartDashboard.putNumber("Front Left Drive Encoder Position", frontLeft.getDriveEncoderPosition());
+    // SmartDashboard.putNumber("Front Left Drive Encoder Position", frontLeft.getDriveEncoderPosition());
     SmartDashboard.putNumber("Front Left Turn SRX Mag Encoder", frontLeft.getTurnEncoderPosition());
 
-    SmartDashboard.putNumber("Front Right Drive Encoder Position", frontRight.getDriveEncoderPosition());
+    // SmartDashboard.putNumber("Front Right Drive Encoder Position", frontRight.getDriveEncoderPosition());
     SmartDashboard.putNumber("Front Right Turn SRX Mag Encoder", frontRight.getDriveEncoderPosition());
 
-    SmartDashboard.putNumber("Back Left Drive Encoder Position", backLeft.getDriveEncoderPosition());
+    // SmartDashboard.putNumber("Back Left Drive Encoder Position", backLeft.getDriveEncoderPosition());
     SmartDashboard.putNumber("Back Left Turn SRX Mag Encoder", backLeft.getTurnEncoderPosition());
 
-    SmartDashboard.putNumber("Back Right Drive Encoder Position", backRight.getDriveEncoderPosition());
+    // SmartDashboard.putNumber("Back Right Drive Encoder Position", backRight.getDriveEncoderPosition());
     SmartDashboard.putNumber("Back Right Turn SRX Mag Encoder", backRight.getDriveEncoderPosition());
     
     SmartDashboard.putNumber("Front Left Drive Falcon Integrated Encoder", frontLeft.getDriveIntegratedEncoder());
