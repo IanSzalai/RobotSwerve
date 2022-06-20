@@ -116,27 +116,27 @@ public class Drivetrain extends SubsystemBase {
     updateOdometry();
 
     SmartDashboard.putNumber("Front Left Drive Encoder Position", frontLeft.getDriveEncoderPosition());
-    SmartDashboard.putNumber("Front Left Turn Encoder Position", frontLeft.getTurnEncoderPosition());
+    SmartDashboard.putNumber("Front Left Turn SRX Mag Encoder", frontLeft.getTurnEncoderPosition());
 
     SmartDashboard.putNumber("Front Right Drive Encoder Position", frontRight.getDriveEncoderPosition());
-    SmartDashboard.putNumber("Front Right Turn Encoder Position", frontRight.getDriveEncoderPosition());
+    SmartDashboard.putNumber("Front Right Turn SRX Mag Encoder", frontRight.getDriveEncoderPosition());
 
     SmartDashboard.putNumber("Back Left Drive Encoder Position", backLeft.getDriveEncoderPosition());
-    SmartDashboard.putNumber("Back Left Turn Encoder Position", backLeft.getTurnEncoderPosition());
+    SmartDashboard.putNumber("Back Left Turn SRX Mag Encoder", backLeft.getTurnEncoderPosition());
 
     SmartDashboard.putNumber("Back Right Drive Encoder Position", backRight.getDriveEncoderPosition());
-    SmartDashboard.putNumber("Back Right Turn Encoder Position", backRight.getDriveEncoderPosition());
+    SmartDashboard.putNumber("Back Right Turn SRX Mag Encoder", backRight.getDriveEncoderPosition());
     
-    SmartDashboard.putNumber("Front Left Drive Integrated Encoder", frontLeft.getDriveIntegratedEncoder());
-    SmartDashboard.putNumber("Front Left Turn Integrated Encoder", frontLeft.getTurnIntegratedEncoder());
+    SmartDashboard.putNumber("Front Left Drive Falcon Integrated Encoder", frontLeft.getDriveIntegratedEncoder());
+    SmartDashboard.putNumber("Front Left Turn Falcon Integrated Encoder", frontLeft.getTurnIntegratedEncoder());
 
-    SmartDashboard.putNumber("Front Right Drive Integrated Encoder", frontRight.getDriveIntegratedEncoder());
-    SmartDashboard.putNumber("Front Right Turn Integrated Encoder", frontRight.getTurnIntegratedEncoder());
+    SmartDashboard.putNumber("Front Right Drive Falcon Integrated Encoder", frontRight.getDriveIntegratedEncoder());
+    SmartDashboard.putNumber("Front Right Turn Falcon Integrated Encoder", frontRight.getTurnIntegratedEncoder());
 
-    SmartDashboard.putNumber("Back Left Drive Integrated Encoder", backLeft.getDriveIntegratedEncoder());
-    SmartDashboard.putNumber("Back Left Turn Integrated Encoder", backLeft.getTurnIntegratedEncoder());
+    SmartDashboard.putNumber("Back Left Drive Falcon Integrated Encoder", backLeft.getDriveIntegratedEncoder());
+    SmartDashboard.putNumber("Back Left Turn Falcon Integrated Encoder", backLeft.getTurnIntegratedEncoder());
 
-    SmartDashboard.putNumber("Back Right Drive Integrated Encoder", backRight.getDriveIntegratedEncoder());
-    SmartDashboard.putNumber("Back Right Turn Integrated Encoder", backRight.getTurnIntegratedEncoder());
+    SmartDashboard.putNumber("Back Right Drive Falcon Integrated Encoder", backRight.getDriveIntegratedEncoder());
+    SmartDashboard.putNumber("Back Right Turn Falcon Integrated Encoder", backRight.getTurnIntegratedEncoder());
   }
 }
